@@ -12,7 +12,6 @@ public class CustomerService {
     }
 
     public boolean registerCustomer(Customer customer) {
-        // Simple validation
         if (customer.getCustomerId() <= 0) return false;
         if (customer.getLastName() == null || customer.getLastName().trim().isEmpty()) return false;
         if (customer.getFirstName() == null || customer.getFirstName().trim().isEmpty()) return false;

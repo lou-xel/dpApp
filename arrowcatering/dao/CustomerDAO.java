@@ -63,7 +63,7 @@ public class CustomerDAO {
             pstmt.setString(2, customer.getFirstName());
             pstmt.setString(3, customer.getMi());
             pstmt.setString(4, customer.getEmail());
-            pstmt.setInt(5, customer.getContactNumber());
+            pstmt.setLong(5, customer.getContactNumber());  // Use setLong for BIGINT
             pstmt.setInt(6, customer.getCustomerId());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {

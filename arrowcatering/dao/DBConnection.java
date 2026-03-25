@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBConnection {
-    private static Connection connection = null;
     private static String url, user, password, driver;
 
     static {
@@ -27,19 +26,10 @@ public class DBConnection {
     }
 
     public static Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(url, user, password);
-        }
-        return connection;
+        return DriverManager.getConnection(url, user, password);
     }
 
     public static void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        // Optional: implement connection pooling if needed
     }
 }

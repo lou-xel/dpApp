@@ -7,14 +7,14 @@ import java.sql.Connection;
 
 public class MainApp {
     public static void main(String[] args) {
-        // Set look and feel
+
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        // Test database connection
+
         try (Connection conn = DBConnection.getConnection()) {
             System.out.println("✅ Database connected successfully!");
         } catch (Exception e) {
@@ -26,7 +26,7 @@ public class MainApp {
             System.exit(1);
         }
 
-        // Launch GUI
+
         SwingUtilities.invokeLater(() -> {
             MainFrame frame = new MainFrame();
             frame.setVisible(true);
